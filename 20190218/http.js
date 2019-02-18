@@ -4,7 +4,7 @@ const server = http.createServer((request, responce) => {
 	const contentType = request.headers['content-type'];
 	switch (contentType) {
 		case 'text/plain':
-			responce.setHeader('Content-type', 'text/plain');
+			responce.setHeader('Content-Type', 'application/json');
 			let str = "";
 			let st = (new Date()).getTime();
 			request.on('data', (data) => {
@@ -12,7 +12,10 @@ const server = http.createServer((request, responce) => {
 			});
 			request.on('end', (data) => {
 				let et = (new Date()).getTime();
-				responce.end(`use ${et - st} ms, data size is: ${str.length}`);
+				responce.end(JSON.stringify({
+					time: et - st,
+					length: str.length
+				}));
 			});
 			break;
 		default:
