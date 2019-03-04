@@ -27,6 +27,8 @@
     "babel-eslint": "^10.0.1",
     "keygrip": "^1.0.3",
     "koa": "^2.7.0",
+    "koa-body": "^4.0.8",
+    "koa-router": "^7.4.0",
     "learnyounode": "^3.5.10"
   }
 }
