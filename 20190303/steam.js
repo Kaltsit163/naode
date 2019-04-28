@@ -3,8 +3,8 @@ const app = new koa();
 const fs = require('fs');
 
 const read = async (ctx, next) => {
-  ctx.response.set('Content-Type', 'image/png')
-  ctx.body = fs.createReadStream('./profile.png');
+  ctx.response.set('Content-Type', 'text/html')
+  ctx.body = fs.createReadStream('./index.html');
 }
 
 app.use(read);
