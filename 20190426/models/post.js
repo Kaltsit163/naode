@@ -10,33 +10,33 @@ const Model = sequelize.define('post', {
 Model.sync();
 
 const list = async ({ limit = 10 }) => {
-    const results = await Model.findAll({
-        limit: limit,
-        attributes: ['id', 'title']
-    });
-    return {
-        posts: results.map(r => r.dataValues)
-    }
+	const results = await Model.findAll({
+		limit: limit,
+		attributes: ['id', 'title']
+	});
+	return {
+		posts: results.map(r => r.dataValues)
+	}
 };
 
 const create = async (post) => {
-    const created = await Model.create(post);
-    return {
-        created: created
-    }
+	const created = await Model.create(post);
+	return {
+		created: created
+	}
 };
 
 const find = async (id) => {
-    const found = await Model.findOne({
-        where: {
-            id: {
-                [Op.eq]: id
-            }
-        }
-    });
-    return {
-        found: found.dataValues
-    }
+	const found = await Model.findOne({
+		where: {
+			id: {
+				[Op.eq]: id
+			}
+		}
+	});
+	return {
+		found: found.dataValues
+	}
 };
 
 
