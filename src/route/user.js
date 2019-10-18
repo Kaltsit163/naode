@@ -14,7 +14,6 @@ router.post('user', '/:id/data', async (ctx, next) => {
   const id = ctx.params.id;
   const { data } = ctx.request.body;
   users[id] = data;
-  console.log(data)
   ctx.body = {
     data: users[id] || {}
   }
